@@ -8,8 +8,8 @@ const bucketName ="tpbazar"
 const s3 = new aws.S3({
     region:'ap-south-1',
     credentials:{
-        secretAccessKey:'Y5+B3YWfZiAn/K64BMKG5jL4xz8FXDhVycUv/xHv',
-        accessKeyId:'AKIA2Y6XU3GATE6MM6ED',
+        secretAccessKey:process.env.SECRET_ACCESS_KEY,
+        accessKeyId:process.env.ACCESS_KEY_ID,
     }
  })
  let storage=multerS3({
@@ -175,12 +175,12 @@ let upload = multer({storage:storage})
  *               $ref: '#/components/schemas/admin_users'
  */
 
-const { postgetEmployee, postEmployee,getlistEmployee, updateEmployee, updateStatusEmployee } = require('../../controller/employee');
+const { postgetEmployee, postEmployee,getlistEmployee, updateEmployee, updateStatusEmployee } = require('../../controller/users');
 
-employeeRouter.post('/api/admin/userregister',upload.single('photo'),postEmployee);
+employeeRouter.post('/api/admin/userregister',upload.single('photo'), postEmployee);
 employeeRouter.get('/api/admin/userfind/:user_name', getlistEmployee);
 employeeRouter.post('/api/userlist', postgetEmployee);
-employeeRouter.patch('/api/admin/userupdate/:user_id', updateEmployee);
+employeeRouter.patch('/api/admin/userupdate/:user_id',upload.single('photo'), updateEmployee);
 employeeRouter.patch('/api/admin/status/:user_id', updateStatusEmployee);
 
 module.exports = employeeRouter;

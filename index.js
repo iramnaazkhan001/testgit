@@ -21,12 +21,35 @@ const option = {
             }
         ]
     },
-    apis: ['./route/route/employeeRoute.js']
+    apis: ['./route/route/usersRoute.js','./route/route/rolesRoute.js','./route/route/roleAssignRoute.js']
+    
 }
 
-const employeeRouter = require('./route/route/employeeRoute');
+const employeeRouter = require('./route/route/usersRoute');
+//Route Location
+const rolesRouter = require('./route/route/rolesRoute')
+const rolesAssignRouter = require('./route/route/roleAssignRoute')
+const categoryRouter = require('./route/route/categoryRoute')
+const offersRouter = require('./route/route/offersRoute')
+const subcategoryRouter = require('./route/route/subCategoryRoute')
 app.use('/', employeeRouter);
 
+//use for role Routes
+app.use('/role', rolesRouter);
+
+//use for assign role Routes
+app.use('/assign',rolesAssignRouter)
+
+// use for category Routes
+app.use('/category',categoryRouter)
+
+//use for offers Routes
+app.use('/offers',offersRouter)
+
+//use for subcategory Routes
+app.use('/subcat',subcategoryRouter)
+
+//for swagger
 app.use('/project', swaggerUi.serve, swaggerUi.setup(swaggerjsdoc(option)));
 
 const port = process.env.SERVER_PORT;

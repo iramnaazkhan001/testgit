@@ -9,6 +9,7 @@ import {
 import { Link } from 'react-router-dom';
 const SideBar = () => {
   return (
+    <div style={{height:'53.1rem'}}>
     <CDBSidebar textColor="white" backgroundColor="black">
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
 
@@ -27,6 +28,7 @@ const SideBar = () => {
         </CDBSidebarMenu>
       </CDBSidebarContent>
     </CDBSidebar>
+    </div>
   );
 };
 

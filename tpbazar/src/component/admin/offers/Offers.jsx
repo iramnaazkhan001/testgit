@@ -117,17 +117,20 @@ export default function AddOffer() {
     return (
         <>
             <div className='d-flex'>
-                <div class="card mx-5 mt-5" style={{ width: '50%' }}>
+                <div class="card mx-5 mt-5" style={{ width: '50%', border:'2px solid black' }}>
                     <h3 className='text-center mt-2'>Add Categories</h3>
                     <div class="card-body justify-content-center">
-                        <div class="mb-3">
+                        <div className='d-flex p-2'>
+                        <div class="col-6">
                             <label for="exampleFormControlInput1" class="form-label">Offer ID</label>
                             <input type="text" class="form-control" onChange={(e) => setValues({ ...values, offer_id: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Offer Id" />
                         </div>
-                        <div class="mb-3">
+                        <div class="col-6">
                             <label for="exampleFormControlInput1" class="form-label">Offer Name</label>
                             <input type="text" class="form-control" onChange={(e) => setValues({ ...values, offer_name: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Offer Name" />
                         </div>
+                        </div>
+                        <div className='d-flex p-2'>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Percentage Discount</label>
                             <input type="text" class="form-control" onChange={(e) => setValues({ ...values, percentage_discount: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Discount In %" />
@@ -136,6 +139,8 @@ export default function AddOffer() {
                             <label for="exampleFormControlInput1" class="form-label">Flat Discount</label>
                             <input type="text" class="form-control" onChange={(e) => setValues({ ...values, flat_discount: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Flat Discount e.g 500$" />
                         </div>
+                        </div>
+                        <div className='d-flex p-2'>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Upto Discount</label>
                             <input type="text" class="form-control" onChange={(e) => setValues({ ...values, upto_discount: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Upto Discount " />
@@ -144,6 +149,8 @@ export default function AddOffer() {
                             <label for="exampleFormControlInput1" class="form-label">Valid From</label>
                             <input type="date" class="form-control" onChange={(e) => setValues({ ...values, validfrom: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Valid from" />
                         </div>
+                        </div>
+                        <div className='d-flex p-2'>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Valid To</label>
                             <input type="date" class="form-control" onChange={(e) => setValues({ ...values, validto: e.target.value })} id="exampleFormControlInput1" placeholder="Enter valid to" />
@@ -152,11 +159,13 @@ export default function AddOffer() {
                             <label for="exampleFormControlInput1" class="form-label">Terms & Conditions</label>
                             <input type="text" class="form-control" onChange={(e) => setValues({ ...values, terms_and_condition: e.target.value })} id="exampleFormControlInput1" placeholder="Enter Terms & Conditions" />
                         </div>
+                        </div>
+
                         <div class="form-check form-switch">
                             <label class="form-check-label" for="flexSwitchCheckDefault">Status<p className=''>*{st}</p></label>
                             <input class="form-check-input" onClick={switchClick} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                         </div>
-                        <button type="button" onClick={handelSave} class="btn col-12 btn-outline-danger">Save</button>
+                        <button type="button" onClick={handelSave} class="btn col-12 btn-outline-success">Save</button>
                     </div>
                 </div>
                 <div>
@@ -169,10 +178,10 @@ export default function AddOffer() {
                         onChange={(e) => setSearch(e.target.value)}
                     />
                    <button style={{border:'1.5px solid black', borderLeft:'0px'}}>%</button> 
-                    <button className="btn btn-outline-danger" onClick={handleSearch}>
+                    <button className="btn btn-outline-success" onClick={handleSearch}>
                         Search
                     </button>
-                    <table class="table table-hover border m-3 "  style={{ width: '50%' }}>
+                    <table class="table table-hover"  style={{ width: '50%', border:'2px solid black'}}>
                         <thead >
                             <tr className=' table-light bg-blackbg-gradient'>
 
@@ -203,7 +212,7 @@ export default function AddOffer() {
                                                 <td>{item.status}</td>
                                                 <td>
                                                     <DropdownButton id="dropdown-basic-button" title="&#8942;" variant='Secondary' >
-                                                        <Button variant="danger" onClick={handleShow}>
+                                                        <Button variant="primary" onClick={handleShow}>
                                                            Update
                                                         </Button>
                                                         <Modal show={show} onHide={handleClose}>

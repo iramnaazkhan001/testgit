@@ -28,7 +28,7 @@ function Category() {
     return (
         <>
         <div className="container d-flex justify-content-center">
-            <div class="card mx-5 mt-5" style={{ width: '20rem' }}>
+            <div class="card mx-5 mt-5" style={{ width: '30rem', border:'2px solid black' }}>
                 <h3 className='text-center mt-2'>Add Categories</h3>
                 <div class="card-body justify-content-center">
                     <div class="mb-3">
@@ -43,9 +43,9 @@ function Category() {
                 </div>
             </div>
 
-            <div className='mx-5 mt-5 border'>
+            <div className='mx-5 mt-5' style={{border:'2px solid black'}}>
                 <h3 className='mt-2 text-center'>All Category List</h3>
-                <table class="table table-hover border m-3 " style={{ width: '20rem' }}>
+                <table class="table table-hover " style={{ width: '30rem', border:'1px solid black' }}>
                     <thead >
                         <tr className=' table-light bg-blackbg-gradient'>
                             

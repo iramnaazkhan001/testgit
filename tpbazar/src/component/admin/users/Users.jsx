@@ -32,22 +32,72 @@ function User() {
     const [password, setPassword] = useState()
     const [photo, setPhoto] = useState()
     const [search, setSearch] = useState('')
-    const [assignRole, setAssignRole]  = useState([])
+    const [assignRole, setAssignRole] = useState([])
+    const [role, setRole] = useState([])
+    const [roleid, setRoleid] = useState()
 
+    // active deactive status
+    const getData = async () => {
+        let response = await axios.get("http://localhost:6767/api/userlist");
+        setData(response.data);
+    };
+    async function activestatus(uid) {
+        let response = await axios.patch(`http://localhost:6767/api/admin/status/${uid}`);
+        console.log(response)
+        getData()
+    }
+
+    let deactivestatus = async (uid) => {
+        let res = await axios.patch(`http://localhost:6767/api/admin/status/${uid}`);
+        console.log(res)
+        getData()
+
+    }
+    //////////////////////////
+
+    const handleChangeStatus = (uid, state) => {
+        console.log(uid, state)
+    }
+    ////////////////////////////
     //update state
-const roleAssign=(id)=>{
-    handleShow()
-    axios.get('http://localhost:6767/assign/api/admin/role/assign/checkrole/'+id)
-    .then(res=>{
-        // console.log(res.data[0].role_name)
-        setAssignRole(res.data)
-    })
-    .catch(err=>console.log(err))
-}
+    const roleAssign = (id) => {
+        handleShow()
+        axios.get('http://localhost:6767/assign/api/admin/role/assign/checkrole/' + id)
+            .then(res => {
+                // console.log(res.data[0].role_name)
+                setAssignRole(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+    useEffect(() => {
+        axios.post('http://localhost:6767/role/api/admin/roles/view')
+            .then(res => {
+                console.log(res)
+                if (res.status === 200) {
+                    setRole(res.data)
+
+                } else {
+                    alert("Error")
+                }
+            })
+            .catch(err => console.log(err));
+    }, [])
+
+    // assign role to user
+    const assignrole = (user_id) => {
+        console.log(user_id)
+        axios.post(`http://localhost:6767/assign/api/admin/role/assign/postrole/${roleid}/${user_id}`)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const navigate = useNavigate()
     const value = new FormData()
-    
+
     value.append('user_name', user_name)
     value.append('email', email)
     value.append('password', password)
@@ -103,27 +153,45 @@ const roleAssign=(id)=>{
                 }
             });
     };
+    //////////////////
+    const handleRevokeRole = async (role_id) => {
+        try {
+            const response = await axios.delete(`http://localhost:6767/assign/api/admin/role/assign/revokerole/${role_id}`);
+            console.log(response.data)
+            if (response.data.message === 'success') {
+                window.location.reload(true);
+            } else {
+                alert("Error", response.data);
+            }
+        } catch (error) {
+            console.error("An error occurred in the delete role:", error);
+        }
+    };
+
+
+
     return (
         <div>
-            <h2 className='d-flex justify-content-center'>List of All Users</h2>
+            <h2 className='d-flex justify-content-center' style={{ fontFamily: 'initial' }}>List of All Users</h2>
+            <hr />
             <Row>
                 <Col>
-                    <Link to='/adduser'><Button className='btn-danger' style={{boxShadow:'0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'}}>+ ADD USER</Button></Link>
+                    <Link to='/adduser'><Button className='btn-Primary' style={{ boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)', marginLeft: '4%' }}>+ ADD USER</Button></Link>
                 </Col>
                 <Col>
                     <Input
                         type="text"
                         placeholder="Search"
-                        // style={{ marginLeft: '50%' }}
+                        style={{ marginLeft: '55%' }}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <Button className="btn btn-danger" onClick={handleSearch} style={{boxShadow:'0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'}}>
+                    <Button className="btn btn-primary" onClick={handleSearch} style={{ boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)' }}>
                         Search
                     </Button>
                 </Col>
             </Row>
             <br />
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{ marginLeft: "2%", border: '1px solid grey' }}>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -133,15 +201,16 @@ const roleAssign=(id)=>{
                         {/* <th>DOB</th>
                         <th>DOJ</th> */}
                         <th>Photo</th>
-                        {/* <th>Adhar Card</th>
+                        <th>Adhar Card</th>
                         <th>Qualification</th>
                         <th>State</th>
-                        <th>City</th>
+                        {/* <th>City</th> */}
                         <th>Pin</th>
-                        <th>Address</th> */}
+                        <th>Address</th>
                         <th>Status</th>
                         <th>View Roles</th>
                         <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -154,15 +223,31 @@ const roleAssign=(id)=>{
                             {/* <td>{moment(user.DOB).format("DD/MM/YYYY")}</td>
                             <td>{moment(user.DOJ).format("DD/MM/YYYY")}</td> */}
                             <td><img src={user.photo} alt={user.name} style={{ height: 50, width: 50, borderRadius: '100%' }} /></td>
-                            {/* <td>{user.aadhar}</td>
+                            <td>{user.aadhar}</td>
                             <td>{user.Qualification}</td>
                             <td>{user.state}</td>
-                            <td>{user.city}</td>
+                            {/* <td>{user.city}</td> */}
                             <td>{user.PIN}</td>
-                            <td>{user.address}</td> */}
-                            <td>{user.status}</td>
+                            <td>{user.address}</td>
                             <td>
-                                <Button variant="danger" style={{boxShadow:'0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'}} onClick={e=>roleAssign(user.user_id)}>
+                                {
+                                    user.status === 'InActive' ? (
+                                        <Form.Check
+                                            type="switch"
+                                            onClick={e => handleChangeStatus(user.user_id, 'Active')}
+                                        />
+                                    ) : (
+                                        <Form.Check
+                                            type="switch"
+                                            defaultChecked
+                                            onClick={e => handleChangeStatus(user.user_id, 'InActive')}
+                                        />
+                                    )
+                                }
+                            </td>
+
+                            <td>
+                                <Button variant="success" style={{ boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)' }} onClick={e => roleAssign(user.user_id)}>
                                     Assign Role
                                 </Button>
 
@@ -171,30 +256,43 @@ const roleAssign=(id)=>{
                                         <Modal.Title>Assign Role</Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Sr.no</th>
-                                                <th>
-                                                    Assign Role
-                                                </th>
-                                                <th>
-                                                    Action
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {assignRole.map((role,index)=>{
-                                                return(
-                                                    <tr key={index+1}>
-                                                        <td>{index+1}</td>
-                                                        <td>{role.role_name}</td>
-                                                        <td>revoke</td>
-                                                    </tr>
-                                                )
-                                            })}
-                                        </tbody>
-                                    </table>
+                                        <select onChange={(e) => setRoleid(e.target.value)}>
+                                            <option value="">Select Assign role</option>
+                                            {
+                                                role.map((ARole) => {
+                                                    return (
+                                                        <option value={ARole.role_id}>{ARole.role_name}</option>
+                                                    )
+                                                })
+                                            }
+                                        </select>
+                                        <Button onClick={(e) => (assignrole(user.user_id))}>Assign Role</Button>
+                                        <table class="table table-striped" style={{ border: '1px solid black' }}>
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr.no</th>
+                                                    <th>
+                                                        Assign Role
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {assignRole.map((role, index) => {
+                                                    return (
+                                                        <tr key={index + 1}>
+                                                            <td>{index + 1}</td>
+                                                            <td>{role.role_name}</td>
+                                                            <Button variant="primary" onClick={() => handleRevokeRole(role.role_id)}>
+                                                                Revoke
+                                                            </Button>
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </tbody>
+                                        </table>
                                     </Modal.Body>
                                     <Modal.Footer>
                                         <Button variant="secondary" onClick={handleClose}>
@@ -374,6 +472,7 @@ const roleAssign=(id)=>{
                                     </Modal>
                                 </DropdownButton>
                             </td>
+
                         </tr>
                     })}
                 </tbody>

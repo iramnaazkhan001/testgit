@@ -11,7 +11,7 @@ connection.connect(function (err) {
         console.log("Error", err.sqlMessage);
     }
     else {
-        console.log("Connection Established...");
+        console.log("Database Connection Established...");
     }
 })
 module.exports = connection;

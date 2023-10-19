@@ -66,7 +66,7 @@ export default class Example extends PureComponent {
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           width={500}
-          height={400}
+          height={600}
           data={data}
           margin={{
             top: 20,

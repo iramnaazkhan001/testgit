@@ -286,106 +286,105 @@
 
 //     return (
 //         <>
-//             <Form class='row g-6'>
-//                 <div className='d-flex flex-column align-items-center pt-4 '>
-//                     <h2>Add User Details</h2>
-//                     <hr />
-//                     <FormControl className="row g-3 w-50" onSubmit={handleSubmit}>
-//                         <div className="col-6">
-//                             <FormLabel for="InputName" className="form-label" >User Name</FormLabel>
-//                             <Input type="text" className="form-control" id="InputName" placeholder='Enter your Name' autoComplete='off'
-//                                 onChange={e => setName(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputName" className="form-label" >Mobile</FormLabel>
-//                             <Input type="number" className="form-control" id="InputName" placeholder='Enter Mobile Number' autoComplete='off'
-//                                 onChange={e => setMobile(e.target.value)} required />
-//                         </div>
+            // <Form class='row g-6'>
+            //     <div className='d-flex flex-column align-items-center pt-4 '>
+            //         <h2>Add User Details</h2>
+            //         <hr />
+            //         <FormControl className="row g-3 w-50" onSubmit={handleSubmit}>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputName" className="form-label" >User Name</FormLabel>
+            //                 <Input type="text" className="form-control" id="InputName" placeholder='Enter your Name' autoComplete='off'
+            //                     onChange={e => setName(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputName" className="form-label" >Mobile</FormLabel>
+            //                 <Input type="number" className="form-control" id="InputName" placeholder='Enter Mobile Number' autoComplete='off'
+            //                     onChange={e => setMobile(e.target.value)} required />
+            //             </div>
 
-//                         <div className="col-6">
-//                             <FormLabel for="InputEmail4" className="form-label">Aadhar</FormLabel>
-//                             <Input type="number" className="form-control" id="InputEmail4" placeholder='Enter Aadhar Number' autoComplete='off'
-//                                 onChange={e => setAadhar(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputEmail4" className="form-label">Email</FormLabel>
-//                             <Input type="email" className="form-control" id="InputEmail4" placeholder='Enter Your Email' autoComplete='off'
-//                                 onChange={e => setEmail(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputNumber" className="form-label">DOJ</FormLabel>
-//                             <Input type="date" className="form-control" id="InputNumber" placeholder='Enter your DOJ'
-//                                 onChange={e => setDoj(e.target.value)} required />
-//                         </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputEmail4" className="form-label">Aadhar</FormLabel>
+            //                 <Input type="number" className="form-control" id="InputEmail4" placeholder='Enter Aadhar Number' autoComplete='off'
+            //                     onChange={e => setAadhar(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputEmail4" className="form-label">Email</FormLabel>
+            //                 <Input type="email" className="form-control" id="InputEmail4" placeholder='Enter Your Email' autoComplete='off'
+            //                     onChange={e => setEmail(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputNumber" className="form-label">DOJ</FormLabel>
+            //                 <Input type="date" className="form-control" id="InputNumber" placeholder='Enter your DOJ'
+            //                     onChange={e => setDoj(e.target.value)} required />
+            //             </div>
 
-//                         <div className="col-6">
-//                             <FormLabel for="InputSalary" className="form-label" >Status</FormLabel>
-//                             <Form.Select aria-label="Default select example" onChange={e => setStatus(e.target.value)}>
-//                                 <option>Select...</option>
-//                                 <option value="Active">Active</option>
-//                                 <option value="InActive">InActive</option>
-//                             </Form.Select>
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">DOB</FormLabel>
-//                             <Input type="date" className="form-control" id="InputAddress" placeholder="Enter Your DOB" autoComplete='off'
-//                                 onChange={e => setDob(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">Qualification</FormLabel>
-//                             <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your Qualification" autoComplete='off'
-//                                 onChange={e => setQualification(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">Address</FormLabel>
-//                             <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your Address" autoComplete='off'
-//                                 onChange={e => setAddress(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">State</FormLabel>
-//                             <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your State" autoComplete='off'
-//                                 onChange={e => setState(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">City</FormLabel>
-//                             <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your City" autoComplete='off'
-//                                 onChange={e => setCity(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">PIN</FormLabel>
-//                             <Input type="number" className="form-control" id="InputAddress" placeholder="Enter Your PIN code" autoComplete='off'
-//                                 onChange={e => setPin(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6">
-//                             <FormLabel for="InputAddress" className="form-label">Password</FormLabel>
-//                             <Input type="password" className="form-control" id="InputAddress" placeholder="Enter Your Password" autoComplete='off'
-//                                 onChange={e => setPassword(e.target.value)} required />
-//                         </div>
-//                         <div className="col-6 ">
-//                             <FormLabel className="form-label" for="InputGroupFile01">Select Your Profile</FormLabel>
-//                             <Input type="file" className="form-control" id="InputGroupFile01"
-//                                 onChange={e => setPhoto(e.target.files[0])} />
-//                         </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputSalary" className="form-label" >Status</FormLabel>
+            //                 <Form.Select aria-label="Default select example" onChange={e => setStatus(e.target.value)}>
+            //                     <option>Select...</option>
+            //                     <option value="Active">Active</option>
+            //                     <option value="InActive">InActive</option>
+            //                 </Form.Select>
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">DOB</FormLabel>
+            //                 <Input type="date" className="form-control" id="InputAddress" placeholder="Enter Your DOB" autoComplete='off'
+            //                     onChange={e => setDob(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">Qualification</FormLabel>
+            //                 <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your Qualification" autoComplete='off'
+            //                     onChange={e => setQualification(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">Address</FormLabel>
+            //                 <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your Address" autoComplete='off'
+            //                     onChange={e => setAddress(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">State</FormLabel>
+            //                 <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your State" autoComplete='off'
+            //                     onChange={e => setState(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">City</FormLabel>
+            //                 <Input type="text" className="form-control" id="InputAddress" placeholder="Enter Your City" autoComplete='off'
+            //                     onChange={e => setCity(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">PIN</FormLabel>
+            //                 <Input type="number" className="form-control" id="InputAddress" placeholder="Enter Your PIN code" autoComplete='off'
+            //                     onChange={e => setPin(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6">
+            //                 <FormLabel for="InputAddress" className="form-label">Password</FormLabel>
+            //                 <Input type="password" className="form-control" id="InputAddress" placeholder="Enter Your Password" autoComplete='off'
+            //                     onChange={e => setPassword(e.target.value)} required />
+            //             </div>
+            //             <div className="col-6 ">
+            //                 <FormLabel className="form-label" for="InputGroupFile01">Select Your Profile</FormLabel>
+            //                 <Input type="file" className="form-control" id="InputGroupFile01"
+            //                     onChange={e => setPhoto(e.target.files[0])} />
+            //             </div>
 
-//                         <div className="Col-12">
-//                             <button type="submit" className='col-12  btn btn-danger' onSubmit={() => {
-//                                 handleSubmit()
-//                             }} >Submit</button>
-//                         </div>
-//                     </FormControl>
-//                 </div>
-//             </Form>
+            //             <div className="Col-12">
+            //                 <button type="submit" className='col-12  btn btn-danger' onSubmit={() => {
+            //                     handleSubmit()
+            //                 }} >Submit</button>
+            //             </div>
+            //         </FormControl>
+            //     </div>
+            // </Form>
 //         </>
 //     );
 // }
-
 // export default Addusers;
 
 
 
 import React, { useState } from 'react'
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
+import{Button} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 const Addusers = () => {
     const [user_id, setUser_id] = useState('')
@@ -452,93 +451,121 @@ const Addusers = () => {
     }
     return (
         <>
-            <div className='container'>
-                <Form onSubmit={submitData} >
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='user_id'>user_id</Form.Label>
-                        <Form.Control name='user_id' id='user_id' type='text' value={user_id} onChange={(e) => setUser_id(e.target.value)} />
-                    </Form.Group>
+        <div style={{justifyContent:'center', border:'2px solid black', marginLeft:'20%', marginTop:'10%'}}>
+            <h3 style={{textAlign:'center'}}>Add User Details</h3>
+            <div>
+                <div className='container'>
 
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='name'>user_name</Form.Label>
-                        <Form.Control name='name' id='name' type='text' value={user_name} onChange={(e) => setUser_name(e.target.value)} />
-                    </Form.Group>
+                    <Form onSubmit={submitData} >
+                        <div className='d-flex'>
+                            <div className='col-6'>
+                                <Form.Group>
+                                    <Form.Label htmlFor='user_id'>user_id</Form.Label>
+                                    <Form.Control name='user_id' id='user_id' type='text' value={user_id} onChange={(e) => setUser_id(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                            <div className='col-6'>
+                                <Form.Group>
+                                    <Form.Label htmlFor='name'>user_name</Form.Label>
+                                    <Form.Control name='name' id='name' type='text' value={user_name} onChange={(e) => setUser_name(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='col-6'>
+                                <Form.Group className="mb-3">
+                                    <Form.Label htmlFor='email'>Email</Form.Label>
+                                    <Form.Control name='email' id='category_name' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                            <div className='col-6'>
+                                <Form.Group className="mb-3">
+                                    <Form.Label htmlFor='password'>password</Form.Label>
+                                    <Form.Control name='password' id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                            <div className='col-6'>
+                                <Form.Group className="mb-3">
+                                    <Form.Label htmlFor='mobile'>Mobile</Form.Label>
+                                    <Form.Control name='mobile' id='mobile' type='number' value={mobile} onChange={(e) => setMobile(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                            <div className='col-6'>
+                                <Form.Group className="mb-3">
+                                    <Form.Label htmlFor='image'>Photos</Form.Label>
+                                    <Form.Control name='image' id='image' type='file' defaultValue={photo} onChange={handleImage} />
+                                </Form.Group>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                            <div className='col-6'>
+                                <Form.Group className="mb-3">
+                                    <Form.Label htmlFor='aadhar'>aadhar</Form.Label>
+                                    <Form.Control name='aadhar' id='aadhar' type='text' value={aadhar} onChange={(e) => setAadhar(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                            <div className='col-6'>
+                                <Form.Group className="mb-3">
+                                    <Form.Label htmlFor='doj'>DOJ</Form.Label>
+                                    <Form.Control name='doj' id='doj' type='date' value={DOJ} onChange={(e) => setDoj(e.target.value)} />
+                                </Form.Group>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                        <div className='col-6'>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='qualification'>Qualification</Form.Label>
+                            <Form.Control name='qulalification' id='qulaification' type='text' value={Qualification} onChange={(e) => setQualification(e.target.value)} />
+                        </Form.Group>
+                        </div>
+                        <div className='col-6'>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='dob'>dob</Form.Label>
+                            <Form.Control name='dob' id='dob' type='date' value={DOB} onChange={(e) => setDOB(e.target.value)} />
+                        </Form.Group>
+                        </div>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                        <div className='col-6'>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='aadress'>Address</Form.Label>
+                            <Form.Control name='aadress' id='aadress' type='text' value={address} onChange={(e) => setAddress(e.target.value)} />
+                        </Form.Group>
+                        </div>
+                        <div className='col-6'>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='state'>State</Form.Label>
+                            <Form.Control name='state' id='state' type='text' value={state} onChange={(e) => setState(e.target.value)} />
+                        </Form.Group>
+                        </div>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                        <div className='col-6'>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='city'>City</Form.Label>
+                            <Form.Control name='city' id='category_name' type='text' value={city} onChange={(e) => setCity(e.target.value)} />
+                        </Form.Group>
+                        </div>
+                        <div className='col-6'>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='pin'>PIN</Form.Label>
+                            <Form.Control name='pin' id='pin' type='number' value={PIN} onChange={(e) => setPIN(e.target.value)} />
+                        </Form.Group>
+                        </div>
+                        </div>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor='status'>status</Form.Label>
+                            <Form.Control name='status' id='status' type='text' value={status} onChange={(e) => setStatus(e.target.value)} />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='email'>Email</Form.Label>
-                        <Form.Control name='email' id='category_name' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='password'>password</Form.Label>
-                        <Form.Control name='password' id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='mobile'>Mobile</Form.Label>
-                        <Form.Control name='mobile' id='mobile' type='number' value={mobile} onChange={(e) => setMobile(e.target.value)} />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='image'>Photos</Form.Label>
-                        <Form.Control name='image' id='image' type='file' defaultValue={photo} onChange={handleImage} />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='aadhar'>aadhar</Form.Label>
-                        <Form.Control name='aadhar' id='aadhar' type='text' value={aadhar} onChange={(e) => setAadhar(e.target.value)} />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='doj'>DOJ</Form.Label>
-                        <Form.Control name='doj' id='doj' type='date' value={DOJ} onChange={(e) => setDoj(e.target.value)} />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='qualification'>Qualification</Form.Label>
-                        <Form.Control name='qulalification' id='qulaification' type='text' value={Qualification} onChange={(e) => setQualification(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='dob'>dob</Form.Label>
-                        <Form.Control name='dob' id='dob' type='date' value={DOB} onChange={(e) => setDOB(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='aadress'>Address</Form.Label>
-                        <Form.Control name='aadress' id='aadress' type='text' value={address} onChange={(e) => setAddress(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='state'>State</Form.Label>
-                        <Form.Control name='state' id='state' type='text' value={state} onChange={(e) => setState(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='city'>City</Form.Label>
-                        <Form.Control name='city' id='category_name' type='text' value={city} onChange={(e) => setCity(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='pin'>PIN</Form.Label>
-                        <Form.Control name='pin' id='pin' type='number' value={PIN} onChange={(e) => setPIN(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor='status'>status</Form.Label>
-                        <Form.Control name='status' id='status' type='text' value={status} onChange={(e) => setStatus(e.target.value)} />
-                    </Form.Group>
-                    
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
+            </div>
             </div>
         </>
     )

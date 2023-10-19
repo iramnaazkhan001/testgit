@@ -5,10 +5,10 @@ import { Outlet } from 'react-router-dom'
 function Dashboard() {
     return (
         <div>
-            <Navbarr />
+            <Navbarr/>
             <div style={{display:'flex', flexDirection:'row'}}>
                 <div>
-                    <SideBar />
+                    <SideBar/>
                 </div>
                 <div>
                     <Outlet/>
